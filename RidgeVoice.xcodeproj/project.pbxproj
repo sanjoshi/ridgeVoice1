@@ -14,6 +14,9 @@
 		222E9B9F22D4927800C2D2C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222E9B9D22D4927800C2D2C5 /* LaunchScreen.storyboard */; };
 		222E9BAA22D4927800C2D2C5 /* RidgeVoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E9BA922D4927800C2D2C5 /* RidgeVoiceTests.swift */; };
 		222E9BB522D4927800C2D2C5 /* RidgeVoiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E9BB422D4927800C2D2C5 /* RidgeVoiceUITests.swift */; };
+		22A72D1F22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A72D1E22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift */; };
+		22A72D2222D4A331008B9B83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22A72D2122D4A331008B9B83 /* GoogleService-Info.plist */; };
+		987D81B1815CA9D50513B022 /* libPods-RidgeVoice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7167EC3F40D4501EC88D1229 /* libPods-RidgeVoice.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,11 @@
 		222E9BB022D4927800C2D2C5 /* RidgeVoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidgeVoiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		222E9BB422D4927800C2D2C5 /* RidgeVoiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidgeVoiceUITests.swift; sourceTree = "<group>"; };
 		222E9BB622D4927800C2D2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22A72D1E22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumBlogColorScheme_FullCode.swift; sourceTree = "<group>"; };
+		22A72D2122D4A331008B9B83 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7167EC3F40D4501EC88D1229 /* libPods-RidgeVoice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RidgeVoice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CB7F70FD361D95C779AEA21 /* Pods-RidgeVoice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidgeVoice.debug.xcconfig"; path = "Target Support Files/Pods-RidgeVoice/Pods-RidgeVoice.debug.xcconfig"; sourceTree = "<group>"; };
+		CF7AF2EC4F66104E751691D7 /* Pods-RidgeVoice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidgeVoice.release.xcconfig"; path = "Target Support Files/Pods-RidgeVoice/Pods-RidgeVoice.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				987D81B1815CA9D50513B022 /* libPods-RidgeVoice.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,8 @@
 				222E9BA822D4927800C2D2C5 /* RidgeVoiceTests */,
 				222E9BB322D4927800C2D2C5 /* RidgeVoiceUITests */,
 				222E9B9222D4927600C2D2C5 /* Products */,
+				542CB8024D694E0F388A3559 /* Pods */,
+				6A67D78B5656DA71F273E86B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +108,8 @@
 		222E9B9322D4927600C2D2C5 /* RidgeVoice */ = {
 			isa = PBXGroup;
 			children = (
+				22A72D2022D4A321008B9B83 /* Resources */,
+				22A72D1D22D495AC008B9B83 /* Utility */,
 				222E9B9422D4927600C2D2C5 /* AppDelegate.swift */,
 				222E9B9622D4927600C2D2C5 /* ViewController.swift */,
 				222E9B9822D4927600C2D2C5 /* Main.storyboard */,
@@ -125,6 +138,40 @@
 			path = RidgeVoiceUITests;
 			sourceTree = "<group>";
 		};
+		22A72D1D22D495AC008B9B83 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				22A72D1E22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		22A72D2022D4A321008B9B83 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22A72D2122D4A331008B9B83 /* GoogleService-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		542CB8024D694E0F388A3559 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9CB7F70FD361D95C779AEA21 /* Pods-RidgeVoice.debug.xcconfig */,
+				CF7AF2EC4F66104E751691D7 /* Pods-RidgeVoice.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6A67D78B5656DA71F273E86B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7167EC3F40D4501EC88D1229 /* libPods-RidgeVoice.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +179,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 222E9BB922D4927800C2D2C5 /* Build configuration list for PBXNativeTarget "RidgeVoice" */;
 			buildPhases = (
+				7B2BD757C1CC238C0E485DCA /* [CP] Check Pods Manifest.lock */,
 				222E9B8D22D4927600C2D2C5 /* Sources */,
 				222E9B8E22D4927600C2D2C5 /* Frameworks */,
 				222E9B8F22D4927600C2D2C5 /* Resources */,
@@ -232,6 +280,7 @@
 				222E9B9F22D4927800C2D2C5 /* LaunchScreen.storyboard in Resources */,
 				222E9B9C22D4927800C2D2C5 /* Assets.xcassets in Resources */,
 				222E9B9A22D4927600C2D2C5 /* Main.storyboard in Resources */,
+				22A72D2222D4A331008B9B83 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,12 +300,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7B2BD757C1CC238C0E485DCA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RidgeVoice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		222E9B8D22D4927600C2D2C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				222E9B9722D4927600C2D2C5 /* ViewController.swift in Sources */,
+				22A72D1F22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift in Sources */,
 				222E9B9522D4927600C2D2C5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +505,7 @@
 		};
 		222E9BBA22D4927800C2D2C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CB7F70FD361D95C779AEA21 /* Pods-RidgeVoice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,6 +523,7 @@
 		};
 		222E9BBB22D4927800C2D2C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF7AF2EC4F66104E751691D7 /* Pods-RidgeVoice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
