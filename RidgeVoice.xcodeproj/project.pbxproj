@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		222E9B9522D4927600C2D2C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E9B9422D4927600C2D2C5 /* AppDelegate.swift */; };
+		222E9B9722D4927600C2D2C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E9B9622D4927600C2D2C5 /* ViewController.swift */; };
+		222E9B9A22D4927600C2D2C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222E9B9822D4927600C2D2C5 /* Main.storyboard */; };
+		222E9B9C22D4927800C2D2C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222E9B9B22D4927800C2D2C5 /* Assets.xcassets */; };
+		222E9B9F22D4927800C2D2C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222E9B9D22D4927800C2D2C5 /* LaunchScreen.storyboard */; };
+		222E9BAA22D4927800C2D2C5 /* RidgeVoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E9BA922D4927800C2D2C5 /* RidgeVoiceTests.swift */; };
+		222E9BB522D4927800C2D2C5 /* RidgeVoiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E9BB422D4927800C2D2C5 /* RidgeVoiceUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		222E9BA622D4927800C2D2C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 222E9B8922D4927600C2D2C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 222E9B9022D4927600C2D2C5;
+			remoteInfo = RidgeVoice;
+		};
+		222E9BB122D4927800C2D2C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 222E9B8922D4927600C2D2C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 222E9B9022D4927600C2D2C5;
+			remoteInfo = RidgeVoice;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		222E9B9122D4927600C2D2C5 /* RidgeVoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RidgeVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		222E9B9422D4927600C2D2C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		222E9B9622D4927600C2D2C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		222E9B9922D4927600C2D2C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		222E9B9B22D4927800C2D2C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		222E9B9E22D4927800C2D2C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		222E9BA022D4927800C2D2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		222E9BA522D4927800C2D2C5 /* RidgeVoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidgeVoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		222E9BA922D4927800C2D2C5 /* RidgeVoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidgeVoiceTests.swift; sourceTree = "<group>"; };
+		222E9BAB22D4927800C2D2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		222E9BB022D4927800C2D2C5 /* RidgeVoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidgeVoiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		222E9BB422D4927800C2D2C5 /* RidgeVoiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidgeVoiceUITests.swift; sourceTree = "<group>"; };
+		222E9BB622D4927800C2D2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		222E9B8E22D4927600C2D2C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		222E9BA222D4927800C2D2C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		222E9BAD22D4927800C2D2C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		222E9B8822D4927600C2D2C5 = {
+			isa = PBXGroup;
+			children = (
+				222E9B9322D4927600C2D2C5 /* RidgeVoice */,
+				222E9BA822D4927800C2D2C5 /* RidgeVoiceTests */,
+				222E9BB322D4927800C2D2C5 /* RidgeVoiceUITests */,
+				222E9B9222D4927600C2D2C5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		222E9B9222D4927600C2D2C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				222E9B9122D4927600C2D2C5 /* RidgeVoice.app */,
+				222E9BA522D4927800C2D2C5 /* RidgeVoiceTests.xctest */,
+				222E9BB022D4927800C2D2C5 /* RidgeVoiceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		222E9B9322D4927600C2D2C5 /* RidgeVoice */ = {
+			isa = PBXGroup;
+			children = (
+				222E9B9422D4927600C2D2C5 /* AppDelegate.swift */,
+				222E9B9622D4927600C2D2C5 /* ViewController.swift */,
+				222E9B9822D4927600C2D2C5 /* Main.storyboard */,
+				222E9B9B22D4927800C2D2C5 /* Assets.xcassets */,
+				222E9B9D22D4927800C2D2C5 /* LaunchScreen.storyboard */,
+				222E9BA022D4927800C2D2C5 /* Info.plist */,
+			);
+			path = RidgeVoice;
+			sourceTree = "<group>";
+		};
+		222E9BA822D4927800C2D2C5 /* RidgeVoiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				222E9BA922D4927800C2D2C5 /* RidgeVoiceTests.swift */,
+				222E9BAB22D4927800C2D2C5 /* Info.plist */,
+			);
+			path = RidgeVoiceTests;
+			sourceTree = "<group>";
+		};
+		222E9BB322D4927800C2D2C5 /* RidgeVoiceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				222E9BB422D4927800C2D2C5 /* RidgeVoiceUITests.swift */,
+				222E9BB622D4927800C2D2C5 /* Info.plist */,
+			);
+			path = RidgeVoiceUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		222E9B9022D4927600C2D2C5 /* RidgeVoice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 222E9BB922D4927800C2D2C5 /* Build configuration list for PBXNativeTarget "RidgeVoice" */;
+			buildPhases = (
+				222E9B8D22D4927600C2D2C5 /* Sources */,
+				222E9B8E22D4927600C2D2C5 /* Frameworks */,
+				222E9B8F22D4927600C2D2C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RidgeVoice;
+			productName = RidgeVoice;
+			productReference = 222E9B9122D4927600C2D2C5 /* RidgeVoice.app */;
+			productType = "com.apple.product-type.application";
+		};
+		222E9BA422D4927800C2D2C5 /* RidgeVoiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 222E9BBC22D4927800C2D2C5 /* Build configuration list for PBXNativeTarget "RidgeVoiceTests" */;
+			buildPhases = (
+				222E9BA122D4927800C2D2C5 /* Sources */,
+				222E9BA222D4927800C2D2C5 /* Frameworks */,
+				222E9BA322D4927800C2D2C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				222E9BA722D4927800C2D2C5 /* PBXTargetDependency */,
+			);
+			name = RidgeVoiceTests;
+			productName = RidgeVoiceTests;
+			productReference = 222E9BA522D4927800C2D2C5 /* RidgeVoiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		222E9BAF22D4927800C2D2C5 /* RidgeVoiceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 222E9BBF22D4927800C2D2C5 /* Build configuration list for PBXNativeTarget "RidgeVoiceUITests" */;
+			buildPhases = (
+				222E9BAC22D4927800C2D2C5 /* Sources */,
+				222E9BAD22D4927800C2D2C5 /* Frameworks */,
+				222E9BAE22D4927800C2D2C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				222E9BB222D4927800C2D2C5 /* PBXTargetDependency */,
+			);
+			name = RidgeVoiceUITests;
+			productName = RidgeVoiceUITests;
+			productReference = 222E9BB022D4927800C2D2C5 /* RidgeVoiceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		222E9B8922D4927600C2D2C5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Amit Mathur";
+				TargetAttributes = {
+					222E9B9022D4927600C2D2C5 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					222E9BA422D4927800C2D2C5 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 222E9B9022D4927600C2D2C5;
+					};
+					222E9BAF22D4927800C2D2C5 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 222E9B9022D4927600C2D2C5;
+					};
+				};
+			};
+			buildConfigurationList = 222E9B8C22D4927600C2D2C5 /* Build configuration list for PBXProject "RidgeVoice" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 222E9B8822D4927600C2D2C5;
+			productRefGroup = 222E9B9222D4927600C2D2C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				222E9B9022D4927600C2D2C5 /* RidgeVoice */,
+				222E9BA422D4927800C2D2C5 /* RidgeVoiceTests */,
+				222E9BAF22D4927800C2D2C5 /* RidgeVoiceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		222E9B8F22D4927600C2D2C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222E9B9F22D4927800C2D2C5 /* LaunchScreen.storyboard in Resources */,
+				222E9B9C22D4927800C2D2C5 /* Assets.xcassets in Resources */,
+				222E9B9A22D4927600C2D2C5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		222E9BA322D4927800C2D2C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		222E9BAE22D4927800C2D2C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		222E9B8D22D4927600C2D2C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222E9B9722D4927600C2D2C5 /* ViewController.swift in Sources */,
+				222E9B9522D4927600C2D2C5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		222E9BA122D4927800C2D2C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222E9BAA22D4927800C2D2C5 /* RidgeVoiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		222E9BAC22D4927800C2D2C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222E9BB522D4927800C2D2C5 /* RidgeVoiceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		222E9BA722D4927800C2D2C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 222E9B9022D4927600C2D2C5 /* RidgeVoice */;
+			targetProxy = 222E9BA622D4927800C2D2C5 /* PBXContainerItemProxy */;
+		};
+		222E9BB222D4927800C2D2C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 222E9B9022D4927600C2D2C5 /* RidgeVoice */;
+			targetProxy = 222E9BB122D4927800C2D2C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		222E9B9822D4927600C2D2C5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				222E9B9922D4927600C2D2C5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		222E9B9D22D4927800C2D2C5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				222E9B9E22D4927800C2D2C5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		222E9BB722D4927800C2D2C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		222E9BB822D4927800C2D2C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		222E9BBA22D4927800C2D2C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RidgeVoice/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ridgevoice.RidgeVoice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		222E9BBB22D4927800C2D2C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RidgeVoice/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ridgevoice.RidgeVoice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		222E9BBD22D4927800C2D2C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RidgeVoiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ridgevoice.RidgeVoiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RidgeVoice.app/RidgeVoice";
+			};
+			name = Debug;
+		};
+		222E9BBE22D4927800C2D2C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RidgeVoiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ridgevoice.RidgeVoiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RidgeVoice.app/RidgeVoice";
+			};
+			name = Release;
+		};
+		222E9BC022D4927800C2D2C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RidgeVoiceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ridgevoice.RidgeVoiceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RidgeVoice;
+			};
+			name = Debug;
+		};
+		222E9BC122D4927800C2D2C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RidgeVoiceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.ridgevoice.RidgeVoiceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RidgeVoice;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		222E9B8C22D4927600C2D2C5 /* Build configuration list for PBXProject "RidgeVoice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222E9BB722D4927800C2D2C5 /* Debug */,
+				222E9BB822D4927800C2D2C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		222E9BB922D4927800C2D2C5 /* Build configuration list for PBXNativeTarget "RidgeVoice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222E9BBA22D4927800C2D2C5 /* Debug */,
+				222E9BBB22D4927800C2D2C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		222E9BBC22D4927800C2D2C5 /* Build configuration list for PBXNativeTarget "RidgeVoiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222E9BBD22D4927800C2D2C5 /* Debug */,
+				222E9BBE22D4927800C2D2C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		222E9BBF22D4927800C2D2C5 /* Build configuration list for PBXNativeTarget "RidgeVoiceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222E9BC022D4927800C2D2C5 /* Debug */,
+				222E9BC122D4927800C2D2C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 222E9B8922D4927600C2D2C5 /* Project object */;
+}
