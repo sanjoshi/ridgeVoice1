@@ -1,6 +1,9 @@
 target 'RidgeVoice' do
+  use_frameworks!
 pod 'Firebase'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
+pod 'Firebase/Storage'
+pod 'RealmSwift'
 end

@@ -19,6 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navColor = Color.navigation.value
         UINavigationBar.appearance().barTintColor = navColor
         FirebaseApp.configure()
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "userLoggedIn") != nil {
+            //defaults.set(false, forKey: "showTutorial")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "dashboardvc")
+            self.window?.rootViewController = initialViewController
+        } else {
+            //defaults.set(true, forKey: "showTutorial")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "loginvc")
+            self.window?.rootViewController = initialViewController
+        }
+        self.window?.makeKeyAndVisible()
         return true
     }
 

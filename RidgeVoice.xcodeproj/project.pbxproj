@@ -16,7 +16,12 @@
 		222E9BB522D4927800C2D2C5 /* RidgeVoiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E9BB422D4927800C2D2C5 /* RidgeVoiceUITests.swift */; };
 		22A72D1F22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A72D1E22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift */; };
 		22A72D2222D4A331008B9B83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22A72D2122D4A331008B9B83 /* GoogleService-Info.plist */; };
-		987D81B1815CA9D50513B022 /* libPods-RidgeVoice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7167EC3F40D4501EC88D1229 /* libPods-RidgeVoice.a */; };
+		22AD792622D6044B0000CB6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD792522D6044B0000CB6D /* User.swift */; };
+		22C0D6E522D4A75700A33D9A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6E422D4A75700A33D9A /* LoginViewController.swift */; };
+		22C0D6E922D4B50F00A33D9A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6E822D4B50F00A33D9A /* ActivityIndicator.swift */; };
+		22C0D6EB22D4B59600A33D9A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6EA22D4B59600A33D9A /* Utility.swift */; };
+		22C0D6ED22D4D98D00A33D9A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6EC22D4D98D00A33D9A /* SignUpViewController.swift */; };
+		E1938B32B45B0D5EF705E512 /* Pods_RidgeVoice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77DFC2AFE68B3ED869D163C /* Pods_RidgeVoice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +57,13 @@
 		222E9BB622D4927800C2D2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A72D1E22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumBlogColorScheme_FullCode.swift; sourceTree = "<group>"; };
 		22A72D2122D4A331008B9B83 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7167EC3F40D4501EC88D1229 /* libPods-RidgeVoice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RidgeVoice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22AD792522D6044B0000CB6D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		22C0D6E422D4A75700A33D9A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		22C0D6E822D4B50F00A33D9A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		22C0D6EA22D4B59600A33D9A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		22C0D6EC22D4D98D00A33D9A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9CB7F70FD361D95C779AEA21 /* Pods-RidgeVoice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidgeVoice.debug.xcconfig"; path = "Target Support Files/Pods-RidgeVoice/Pods-RidgeVoice.debug.xcconfig"; sourceTree = "<group>"; };
+		A77DFC2AFE68B3ED869D163C /* Pods_RidgeVoice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RidgeVoice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7AF2EC4F66104E751691D7 /* Pods-RidgeVoice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidgeVoice.release.xcconfig"; path = "Target Support Files/Pods-RidgeVoice/Pods-RidgeVoice.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				987D81B1815CA9D50513B022 /* libPods-RidgeVoice.a in Frameworks */,
+				E1938B32B45B0D5EF705E512 /* Pods_RidgeVoice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,10 +118,11 @@
 		222E9B9322D4927600C2D2C5 /* RidgeVoice */ = {
 			isa = PBXGroup;
 			children = (
+				22AD792422D6042D0000CB6D /* Model */,
+				22C0D6E322D4A72B00A33D9A /* ViewControllers */,
 				22A72D2022D4A321008B9B83 /* Resources */,
 				22A72D1D22D495AC008B9B83 /* Utility */,
 				222E9B9422D4927600C2D2C5 /* AppDelegate.swift */,
-				222E9B9622D4927600C2D2C5 /* ViewController.swift */,
 				222E9B9822D4927600C2D2C5 /* Main.storyboard */,
 				222E9B9B22D4927800C2D2C5 /* Assets.xcassets */,
 				222E9B9D22D4927800C2D2C5 /* LaunchScreen.storyboard */,
@@ -142,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				22A72D1E22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift */,
+				22C0D6E822D4B50F00A33D9A /* ActivityIndicator.swift */,
+				22C0D6EA22D4B59600A33D9A /* Utility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -154,20 +167,37 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		22AD792422D6042D0000CB6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22AD792522D6044B0000CB6D /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22C0D6E322D4A72B00A33D9A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				222E9B9622D4927600C2D2C5 /* ViewController.swift */,
+				22C0D6E422D4A75700A33D9A /* LoginViewController.swift */,
+				22C0D6EC22D4D98D00A33D9A /* SignUpViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		542CB8024D694E0F388A3559 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				9CB7F70FD361D95C779AEA21 /* Pods-RidgeVoice.debug.xcconfig */,
 				CF7AF2EC4F66104E751691D7 /* Pods-RidgeVoice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		6A67D78B5656DA71F273E86B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7167EC3F40D4501EC88D1229 /* libPods-RidgeVoice.a */,
+				A77DFC2AFE68B3ED869D163C /* Pods_RidgeVoice.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,6 +213,7 @@
 				222E9B8D22D4927600C2D2C5 /* Sources */,
 				222E9B8E22D4927600C2D2C5 /* Frameworks */,
 				222E9B8F22D4927600C2D2C5 /* Resources */,
+				A7B0E66BDF0581E766BE1D4B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,6 +354,38 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A7B0E66BDF0581E766BE1D4B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RidgeVoice/Pods-RidgeVoice-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RidgeVoice/Pods-RidgeVoice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -330,6 +393,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22C0D6E522D4A75700A33D9A /* LoginViewController.swift in Sources */,
+				22C0D6ED22D4D98D00A33D9A /* SignUpViewController.swift in Sources */,
+				22C0D6E922D4B50F00A33D9A /* ActivityIndicator.swift in Sources */,
+				22C0D6EB22D4B59600A33D9A /* Utility.swift in Sources */,
+				22AD792622D6044B0000CB6D /* User.swift in Sources */,
 				222E9B9722D4927600C2D2C5 /* ViewController.swift in Sources */,
 				22A72D1F22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift in Sources */,
 				222E9B9522D4927600C2D2C5 /* AppDelegate.swift in Sources */,
@@ -509,6 +577,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = RidgeVoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,6 +596,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = RidgeVoice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
