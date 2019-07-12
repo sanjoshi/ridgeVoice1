@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     var titles=["Profile","Board Members","Buy/Sell Items","Announcement","Ridge Issues","Logout"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.background.value
@@ -27,12 +29,9 @@ class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         let cell:CollectionViewCell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         cell.backgroundColor = UIColor(hexString: "#1F618D")
         cell.cellTitle.text = titles[indexPath.row]
-            return cell
-            
-        }
-        
-  
-
+        return cell
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
@@ -56,15 +55,18 @@ class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
                 self.navigationController?.pushViewController(ridgeissueVC, animated: true)
             }
         case 5:
-            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginvc") as? LoginViewController{
-                UserDefaults.standard.set(nil, forKey: "userLoggedIn")
-                UserDefaults.standard.synchronize()
-                let navigationController = UINavigationController(rootViewController: loginVC)
-                navigationController.isNavigationBarHidden = true
-                UIApplication.shared.keyWindow?.rootViewController = navigationController
-                
-                //self.present(loginVC, animated: true, completion: nil)
-            }
+            do {
+                try Auth.auth().signOut()
+                if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginvc") as? LoginViewController {
+                    UserDefaults.standard.set(nil, forKey: "userLoggedIn")
+                    UserDefaults.standard.synchronize()
+                    let navigationController = UINavigationController(rootViewController: loginVC)
+                    navigationController.isNavigationBarHidden = true
+                    UIApplication.shared.keyWindow?.rootViewController = navigationController
+                }
+            } catch let err {
+                print(err)
+            }            
         default:
             if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
                 self.navigationController?.pushViewController(profileVC, animated: true)
