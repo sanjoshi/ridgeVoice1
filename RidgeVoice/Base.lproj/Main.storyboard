@@ -10,21 +10,122 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Dash BoardVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RidgeVoice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DashBoardVC" customModule="RidgeVoice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="17a-9s-ntZ">
+                                <rect key="frame" x="27" y="143" width="360" height="530"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="B2y-Tl-UId"/>
+                                    <constraint firstAttribute="height" constant="530" id="lUy-DY-m0v"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="0.0" id="YOM-3K-AbO">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="vTw-R3-tsy" customClass="CollectionViewCell" customModule="RidgeVoice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAr-nA-C4o">
+                                                    <rect key="frame" x="0.0" y="37" width="150" height="75"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="T8U-5C-JbF"/>
+                                                        <constraint firstAttribute="height" constant="75" id="tzg-eH-xuh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.1215686275" green="0.3803921569" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="fAr-nA-C4o" firstAttribute="top" secondItem="vTw-R3-tsy" secondAttribute="top" constant="37" id="PKB-d9-TXh"/>
+                                            <constraint firstAttribute="trailing" secondItem="fAr-nA-C4o" secondAttribute="trailing" id="deQ-jM-yZk"/>
+                                            <constraint firstItem="fAr-nA-C4o" firstAttribute="leading" secondItem="vTw-R3-tsy" secondAttribute="leading" id="s9R-wX-5JW"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="cellTitle" destination="fAr-nA-C4o" id="hNw-mX-Zzq"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="8Ed-Gf-jH4"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5bA-5K-NGO"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78005455180000005" green="0.91462389379999998" blue="0.89043193539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="17a-9s-ntZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="osE-gY-QEn"/>
+                            <constraint firstItem="17a-9s-ntZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="79" id="qVV-AX-UU1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="17a-9s-ntZ" secondAttribute="trailing" constant="27" id="qYC-dj-2Hu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="PHU-3w-AAC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="677"/>
+            <point key="canvasLocation" x="937.68115942028987" y="676.63043478260875"/>
+        </scene>
+        <!--Buy SellVC-->
+        <scene sceneID="FJK-6U-PzK">
+            <objects>
+                <viewController storyboardIdentifier="BuySellVC" id="hKR-jn-aYZ" customClass="BuySellVC" customModule="RidgeVoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IbD-HA-fns">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.78005455180000005" green="0.91462389379999998" blue="0.89043193539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="pDe-Bw-ahs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZvY-vh-Xzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="1389"/>
+        </scene>
+        <!--Ridge IssuesVC-->
+        <scene sceneID="6MY-kN-Z2A">
+            <objects>
+                <viewController storyboardIdentifier="RidgeIssuesVC" id="Bmi-ao-5LD" customClass="RidgeIssuesVC" customModule="RidgeVoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OU4-gm-8ea">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.78005455180000005" green="0.91462389379999998" blue="0.89043193539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Tja-ej-Y8y"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G6x-Wx-gry" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1680" y="1388"/>
+        </scene>
+        <!--Board MembersVC-->
+        <scene sceneID="P3j-nk-x9W">
+            <objects>
+                <viewController storyboardIdentifier="BoardMembersVC" id="8gV-w3-m5y" customClass="BoardMembersVC" customModule="RidgeVoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vnj-Po-IDx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.78005455180000005" green="0.91462389379999998" blue="0.89043193539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="SxU-vB-iao"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sgf-Xy-1f9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2367" y="1388"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="PnJ-ng-i2c">
@@ -311,6 +412,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cp1-9S-VxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="42.028985507246382" y="677.44565217391312"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="f9S-6k-bHQ">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="42F-JO-74A" customClass="ProfileViewController" customModule="RidgeVoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G3t-7g-3d2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.78005455180000005" green="0.91462389379999998" blue="0.89043193539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ajf-tY-15m"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9FF-84-4yW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1680" y="677"/>
+        </scene>
+        <!--AnnouncementVC-->
+        <scene sceneID="cyu-yN-V8i">
+            <objects>
+                <viewController storyboardIdentifier="AnnouncementVC" id="Vxk-wi-8QL" customClass="AnnouncementVC" customModule="RidgeVoice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gfe-mo-cp7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.78005455180000005" green="0.91462389379999998" blue="0.89043193539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="cWa-DI-3ms"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ds5-jZ-Ept" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2367" y="676"/>
         </scene>
     </scenes>
     <resources>
