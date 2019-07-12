@@ -21,6 +21,8 @@
 		22C0D6E922D4B50F00A33D9A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6E822D4B50F00A33D9A /* ActivityIndicator.swift */; };
 		22C0D6EB22D4B59600A33D9A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6EA22D4B59600A33D9A /* Utility.swift */; };
 		22C0D6ED22D4D98D00A33D9A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6EC22D4D98D00A33D9A /* SignUpViewController.swift */; };
+		22DB9DFE22D8A2B1002408D3 /* Announcements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB9DFD22D8A2B1002408D3 /* Announcements.swift */; };
+		22DB9E0022D8ADDE002408D3 /* AnnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB9DFF22D8ADDE002408D3 /* AnnViewController.swift */; };
 		E1938B32B45B0D5EF705E512 /* Pods_RidgeVoice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77DFC2AFE68B3ED869D163C /* Pods_RidgeVoice.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		22C0D6E822D4B50F00A33D9A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		22C0D6EA22D4B59600A33D9A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		22C0D6EC22D4D98D00A33D9A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		22DB9DFD22D8A2B1002408D3 /* Announcements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcements.swift; sourceTree = "<group>"; };
+		22DB9DFF22D8ADDE002408D3 /* AnnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnViewController.swift; sourceTree = "<group>"; };
 		9CB7F70FD361D95C779AEA21 /* Pods-RidgeVoice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidgeVoice.debug.xcconfig"; path = "Target Support Files/Pods-RidgeVoice/Pods-RidgeVoice.debug.xcconfig"; sourceTree = "<group>"; };
 		A77DFC2AFE68B3ED869D163C /* Pods_RidgeVoice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RidgeVoice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7AF2EC4F66104E751691D7 /* Pods-RidgeVoice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidgeVoice.release.xcconfig"; path = "Target Support Files/Pods-RidgeVoice/Pods-RidgeVoice.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				22AD792522D6044B0000CB6D /* User.swift */,
+				22DB9DFD22D8A2B1002408D3 /* Announcements.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				222E9B9622D4927600C2D2C5 /* ViewController.swift */,
 				22C0D6E422D4A75700A33D9A /* LoginViewController.swift */,
 				22C0D6EC22D4D98D00A33D9A /* SignUpViewController.swift */,
+				22DB9DFF22D8ADDE002408D3 /* AnnViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -401,6 +407,8 @@
 				222E9B9722D4927600C2D2C5 /* ViewController.swift in Sources */,
 				22A72D1F22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift in Sources */,
 				222E9B9522D4927600C2D2C5 /* AppDelegate.swift in Sources */,
+				22DB9E0022D8ADDE002408D3 /* AnnViewController.swift in Sources */,
+				22DB9DFE22D8A2B1002408D3 /* Announcements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

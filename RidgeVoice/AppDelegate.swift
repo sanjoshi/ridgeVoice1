@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import RealmSwift
+
+var annRealm = try! Realm() // For Annoucements
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
