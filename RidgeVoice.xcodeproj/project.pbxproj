@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2207692322D9C0DD00A27AF0 /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207692222D9C0DD00A27AF0 /* AddMemberViewController.swift */; };
+		2207692522D9D5BD00A27AF0 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2207692422D9D5BD00A27AF0 /* Member.swift */; };
+		2218F36622D8E595004D5B8B /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218F36522D8E595004D5B8B /* BoardTableViewCell.swift */; };
 		222E9B9522D4927600C2D2C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E9B9422D4927600C2D2C5 /* AppDelegate.swift */; };
 		222E9B9722D4927600C2D2C5 /* DashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E9B9622D4927600C2D2C5 /* DashBoardVC.swift */; };
 		222E9B9A22D4927600C2D2C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222E9B9822D4927600C2D2C5 /* Main.storyboard */; };
@@ -48,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2207692222D9C0DD00A27AF0 /* AddMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
+		2207692422D9D5BD00A27AF0 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		2218F36522D8E595004D5B8B /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
 		222E9B9122D4927600C2D2C5 /* RidgeVoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RidgeVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		222E9B9422D4927600C2D2C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		222E9B9622D4927600C2D2C5 /* DashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardVC.swift; sourceTree = "<group>"; };
@@ -105,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2218F36422D8E56B004D5B8B /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2218F36522D8E595004D5B8B /* BoardTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		222E9B8822D4927600C2D2C5 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				22AD792522D6044B0000CB6D /* User.swift */,
+				2207692422D9D5BD00A27AF0 /* Member.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +206,7 @@
 		22C0D6E322D4A72B00A33D9A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2218F36422D8E56B004D5B8B /* TableViewCell */,
 				222E9B9622D4927600C2D2C5 /* DashBoardVC.swift */,
 				22C0D6E422D4A75700A33D9A /* LoginViewController.swift */,
 				22C0D6EC22D4D98D00A33D9A /* SignUpViewController.swift */,
@@ -199,6 +215,7 @@
 				22D239F922D8AC72008B0AA1 /* BuySellVC.swift */,
 				22D239FB22D8AC89008B0AA1 /* AnnouncementVC.swift */,
 				22D239FD22D8ACA1008B0AA1 /* RidgeIssuesVC.swift */,
+				2207692222D9C0DD00A27AF0 /* AddMemberViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -385,6 +402,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -396,6 +414,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -418,9 +437,12 @@
 				22D239F622D8A8FA008B0AA1 /* ProfileViewController.swift in Sources */,
 				22D239EA22D8A1F7008B0AA1 /* CollectionViewCell.swift in Sources */,
 				22C0D6E922D4B50F00A33D9A /* ActivityIndicator.swift in Sources */,
+				2207692522D9D5BD00A27AF0 /* Member.swift in Sources */,
 				22C0D6EB22D4B59600A33D9A /* Utility.swift in Sources */,
+				2207692322D9C0DD00A27AF0 /* AddMemberViewController.swift in Sources */,
 				22AD792622D6044B0000CB6D /* User.swift in Sources */,
 				222E9B9722D4927600C2D2C5 /* DashBoardVC.swift in Sources */,
+				2218F36622D8E595004D5B8B /* BoardTableViewCell.swift in Sources */,
 				22D239F822D8AC4F008B0AA1 /* BoardMembersVC.swift in Sources */,
 				22A72D1F22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift in Sources */,
 				222E9B9522D4927600C2D2C5 /* AppDelegate.swift in Sources */,

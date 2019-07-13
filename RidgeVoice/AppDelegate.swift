@@ -11,6 +11,7 @@ import Firebase
 import RealmSwift
 
 var annRealm = try! Realm() // For Annoucements
+var memberRealm = try! Realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let defaults = UserDefaults.standard
-        if defaults.object(forKey: "userLoggedIn") != nil {
+        if defaults.bool(forKey: "userLoggedIn") {
             //defaults.set(false, forKey: "showTutorial")
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "dashboardvc")
             self.window?.rootViewController = initialViewController

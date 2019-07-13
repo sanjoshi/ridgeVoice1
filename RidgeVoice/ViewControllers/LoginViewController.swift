@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import Realm
+import RealmSwift
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var loginTxt: UITextField!
@@ -61,35 +63,51 @@ class LoginViewController: UIViewController {
             self.view.endEditing(true)
             ActivityIndicator.shared.show(self.view)
             Auth.auth().signIn(withEmail: loginTxt.text!, password: passwordTxt.text!, completion: { (user, error) in
-                ActivityIndicator.shared.hide()
                 if error != nil {
+                    ActivityIndicator.shared.hide()
                     print(error!._code)
                     self.handleError(error!) 
                     return
                 } else {
                     print("login successful")
-                     let defaults = UserDefaults.standard
-                    defaults.set(true, forKey: "userLoggedIn")
-                    defaults.synchronize()
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let dashboardVC = storyboard.instantiateViewController(withIdentifier: "dashboardvc")
-                    UIApplication.shared.keyWindow?.rootViewController = dashboardVC
-
-                    /*if let currentUser = self.currUser {
+                    if let currentUser = Auth.auth().currentUser {
                         self.userRef.child(currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                             // Get user value
                             if let value = snapshot.value as? NSDictionary {
                                 print(value)
+                                ActivityIndicator.shared.hide()
+                                self.removeRealmData()
+                                let defaults = UserDefaults.standard
+                                if let type = value["type"] as? String, type == "Admin" {
+                                    defaults.set(true, forKey: "isAdmin")
+                                }
+                                defaults.set(true, forKey: "userLoggedIn")
+                                defaults.synchronize()
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let dashboardVC = storyboard.instantiateViewController(withIdentifier: "dashboardvc")
+                                UIApplication.shared.keyWindow?.rootViewController = dashboardVC
                             }
                             
                         }) { (error) in
+                            ActivityIndicator.shared.hide()
                             print(error.localizedDescription)
                         }
-                    }*/
+                    } else {
+                        ActivityIndicator.shared.hide()
+                    }
                 }
             })
         //}
         
+    }
+    
+    func removeRealmData() {
+        let realm = try! Realm()
+        let allObjects = realm.objects(Member.self)
+        
+        try! realm.write {
+            realm.delete(allObjects)
+        }
     }
     
     /*

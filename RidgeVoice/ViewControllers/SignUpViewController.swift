@@ -28,7 +28,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
     
     lazy var userRef: DatabaseReference! = Database.database().reference().child("users")
     lazy var storageRef: StorageReference = Storage.storage().reference(forURL: "gs://ridgevoice-3768f.appspot.com/")
-    var currUser = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()

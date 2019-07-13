@@ -82,6 +82,9 @@ PODS:
   - Realm/Headers (3.17.0)
   - RealmSwift (3.17.0):
     - Realm (= 3.17.0)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
 
 DEPENDENCIES:
   - Firebase
@@ -90,6 +93,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - RealmSwift
+  - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -108,6 +112,7 @@ SPEC REPOS:
     - nanopb
     - Realm
     - RealmSwift
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Firebase: 9445469655a98e9010737f4bc4720e5bda465873
@@ -125,7 +130,8 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Realm: b30db41ff34fc858ffc25ba8d44a82c164e7ccd0
   RealmSwift: fe733e459d60dc7b6971d4cbee2eb4854097d12c
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: b956f1838deaf1759d036b4585f93dc7ab8d7ef7
+PODFILE CHECKSUM: 1c182c3ce73ef886306b7f437a341f9fea56e6a7
 
 COCOAPODS: 1.6.1

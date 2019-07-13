@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7B7451995BCCDE52698DD923ACC0D823"
+               BlueprintIdentifier = "DCC4C158EDE41DCD5204A21D0533BBBA"
                BuildableName = "Pods_RidgeVoice.framework"
                BlueprintName = "Pods-RidgeVoice"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7B7451995BCCDE52698DD923ACC0D823"
+            BlueprintIdentifier = "DCC4C158EDE41DCD5204A21D0533BBBA"
             BuildableName = "Pods_RidgeVoice.framework"
             BlueprintName = "Pods-RidgeVoice"
             ReferencedContainer = "container:Pods.xcodeproj">
