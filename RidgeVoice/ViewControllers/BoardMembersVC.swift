@@ -44,14 +44,14 @@ class BoardMembersVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.title = "Board Members"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
         self.navigationController!.navigationBar.tintColor = UIColor.white
-       // if UserDefaults.standard.bool(forKey: "isAdmin") {
+        if UserDefaults.standard.bool(forKey: "isAdmin") {
             let barButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
             barButtonItem.setTitleTextAttributes([
                 NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 17)!,
                 NSAttributedString.Key.foregroundColor: UIColor.white
                 ], for: .normal)
             navigationItem.rightBarButtonItem = barButtonItem
-      //  }
+       }
         self.tableView.reloadData()
     }
     
@@ -127,7 +127,7 @@ class BoardMembersVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if !UserDefaults.standard.bool(forKey: "isAdmin") {
+        if UserDefaults.standard.bool(forKey: "isAdmin") {
             return true
         }
         return false
