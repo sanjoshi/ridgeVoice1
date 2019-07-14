@@ -20,7 +20,17 @@ class AnnouncementVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        loadDataFromRealm()
+        ActivityIndicator.shared.show(self.view)
+        announcementRef.observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.exists() {
+                self.loadAnnouncements()
+            } else {
+                ActivityIndicator.shared.hide()
+            }
+        }){ (error) in
+            ActivityIndicator.shared.hide()
+            print(error.localizedDescription)
+        }
     }
     
     func  updateUI() {
@@ -182,4 +192,5 @@ extension AnnouncementVC: updateAnnoucementDelegate {
             }
         }
     }
+    
 }
