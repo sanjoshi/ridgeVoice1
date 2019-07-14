@@ -76,7 +76,7 @@ class LoginViewController: UIViewController {
                             if let value = snapshot.value as? NSDictionary {
                                 print(value)
                                 ActivityIndicator.shared.hide()
-                                self.removeRealmData()
+                                //self.removeRealmData()
                                 let defaults = UserDefaults.standard
                                 if let type = value["type"] as? String, type == "Admin" {
                                     defaults.set(true, forKey: "isAdmin")

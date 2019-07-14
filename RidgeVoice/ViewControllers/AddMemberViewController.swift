@@ -21,6 +21,8 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var contactTxt: UITextField!
     @IBOutlet weak var positionTxt: UITextField!
     @IBOutlet weak var actionBtn: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     weak var memberDelegte: updateMembersDelegate?
     
     var imagePicker = UIImagePickerController()
@@ -46,6 +48,7 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
             actionBtn.setTitle("Add", for: .normal)
         }
         updateUI()
+        scrollView.contentSize = calculateContentSize(scrollView: scrollView)
     }
     
     func updateUI() {
@@ -221,6 +224,25 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
             return false
         }
         return true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
+    }
+    
+    func calculateContentSize(scrollView: UIScrollView) -> CGSize {
+        var topPoint = CGFloat()
+        var height = CGFloat()
+        
+        for subview in scrollView.subviews {
+            if subview.frame.origin.y > topPoint {
+                topPoint = subview.frame.origin.y
+                height = subview.frame.size.height
+            }
+        }
+        return CGSize(width: scrollView.frame.size.width, height: height + topPoint)
     }
     /*
     // MARK: - Navigation

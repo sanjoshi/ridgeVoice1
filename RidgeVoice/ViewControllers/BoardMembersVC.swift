@@ -34,7 +34,6 @@ class BoardMembersVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
    func  updateUI() {
-     //  members = memberRealm.objects(Member.self).sorted(byKeyPath: "memberName",ascending: true)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
