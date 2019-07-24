@@ -28,6 +28,7 @@
 		22C0D6E922D4B50F00A33D9A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6E822D4B50F00A33D9A /* ActivityIndicator.swift */; };
 		22C0D6EB22D4B59600A33D9A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6EA22D4B59600A33D9A /* Utility.swift */; };
 		22C0D6ED22D4D98D00A33D9A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0D6EC22D4D98D00A33D9A /* SignUpViewController.swift */; };
+		22CB994C22E7296A005D5F6A /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CB994B22E7296A005D5F6A /* ProfileTableViewCell.swift */; };
 		22D239EA22D8A1F7008B0AA1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D239E922D8A1F7008B0AA1 /* CollectionViewCell.swift */; };
 		22D239F622D8A8FA008B0AA1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D239F522D8A8FA008B0AA1 /* ProfileViewController.swift */; };
 		22D239F822D8AC4F008B0AA1 /* BoardMembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D239F722D8AC4F008B0AA1 /* BoardMembersVC.swift */; };
@@ -82,6 +83,7 @@
 		22C0D6E822D4B50F00A33D9A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		22C0D6EA22D4B59600A33D9A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		22C0D6EC22D4D98D00A33D9A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		22CB994B22E7296A005D5F6A /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		22D239E922D8A1F7008B0AA1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		22D239F522D8A8FA008B0AA1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		22D239F722D8AC4F008B0AA1 /* BoardMembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMembersVC.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				2218F36522D8E595004D5B8B /* BoardTableViewCell.swift */,
 				225382A422DB0BE2008845AF /* AnnouncementTableViewCell.swift */,
+				22CB994B22E7296A005D5F6A /* ProfileTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				22D239FE22D8ACA1008B0AA1 /* RidgeIssuesVC.swift in Sources */,
 				22C0D6E522D4A75700A33D9A /* LoginViewController.swift in Sources */,
 				225382A522DB0BE2008845AF /* AnnouncementTableViewCell.swift in Sources */,
+				22CB994C22E7296A005D5F6A /* ProfileTableViewCell.swift in Sources */,
 				225382AB22DB2158008845AF /* PostAnnouncementViewController.swift in Sources */,
 				22D239FC22D8AC89008B0AA1 /* AnnouncementVC.swift in Sources */,
 				22C0D6ED22D4D98D00A33D9A /* SignUpViewController.swift in Sources */,

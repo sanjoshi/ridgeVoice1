@@ -24,12 +24,10 @@ extension Color {
         var instanceColor = UIColor.clear
         
         switch self {
-        case .navigation:
-            instanceColor = UIColor(hexString: "#1F618D")
+        case .navigation, .button:
+            instanceColor = UIColor(hexString: "#884EA0")
         case .background:
-            instanceColor = UIColor(hexString: "#D5F5E3")
-        case .button:
-            instanceColor = UIColor(hexString: "#333333")
+            instanceColor = UIColor(hexString: "#ECF0F1")
         case .custom(let hexValue, let opacity):
             instanceColor = UIColor(hexString: hexValue).withAlphaComponent(CGFloat(opacity))
         }

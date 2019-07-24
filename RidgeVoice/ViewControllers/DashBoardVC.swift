@@ -37,10 +37,12 @@ class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             try Auth.auth().signOut()
             if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginvc") as? LoginViewController {
                 UserDefaults.standard.set(nil, forKey: "userLoggedIn")
+                UserDefaults.standard.set(nil, forKey: "isAdmin")
                 UserDefaults.standard.synchronize()
                 let navigationController = UINavigationController(rootViewController: loginVC)
                 navigationController.isNavigationBarHidden = true
-                UIApplication.shared.keyWindow?.rootViewController = navigationController
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = navigationController
             }
         } catch let err {
             print(err)
@@ -54,7 +56,7 @@ class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CollectionViewCell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        cell.backgroundColor = UIColor(hexString: "#1F618D")
+        cell.backgroundColor = Color.button.value
         cell.cellTitle.text = titles[indexPath.row]
         return cell
     }

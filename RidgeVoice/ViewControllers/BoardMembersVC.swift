@@ -81,7 +81,7 @@ class BoardMembersVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             } else {
                 cell.profileImg.image = UIImage(named: "defaultUser")
             }
-            
+            cell.profileImg.roundedImage()
             return cell
         }
         return UITableViewCell()
@@ -154,7 +154,8 @@ extension BoardMembersVC: updateMembersDelegate {
     func userInitialize(dictionary: NSDictionary) -> User {
         let user = User()
         user.id = dictionary["id"] as? String
-        user.name = dictionary["name"] as? String
+        user.firstName = dictionary["firstName"] as? String
+        user.lastName = dictionary["lastName"] as? String
         user.email = dictionary["email"] as? String
         user.profilePictureURL = dictionary["profilePictureURL"] as? String
         return user

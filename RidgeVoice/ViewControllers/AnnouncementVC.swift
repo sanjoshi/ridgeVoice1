@@ -43,14 +43,14 @@ class AnnouncementVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.title = "Announcements"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.white]
         self.navigationController!.navigationBar.tintColor = UIColor.white
-        if UserDefaults.standard.bool(forKey: "isAdmin") {
+       if UserDefaults.standard.bool(forKey: "isAdmin") {
             let barButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
             barButtonItem.setTitleTextAttributes([
                 NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 17)!,
                 NSAttributedString.Key.foregroundColor: UIColor.white
                 ], for: .normal)
             navigationItem.rightBarButtonItem = barButtonItem
-        }
+       }
         self.tableView.reloadData()
     }
     
@@ -116,7 +116,7 @@ class AnnouncementVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if UserDefaults.standard.bool(forKey: "isAdmin") {
+       if UserDefaults.standard.bool(forKey: "isAdmin") {
             return true
         }
         return false
@@ -145,7 +145,8 @@ extension AnnouncementVC: updateAnnoucementDelegate {
     func userInitialize(dictionary: NSDictionary) -> User {
         let user = User()
         user.id = dictionary["id"] as? String
-        user.name = dictionary["name"] as? String
+        user.firstName = dictionary["firstName"] as? String
+        user.lastName = dictionary["lastName"] as? String
         user.email = dictionary["email"] as? String
         user.profilePictureURL = dictionary["profilePictureURL"] as? String
         return user

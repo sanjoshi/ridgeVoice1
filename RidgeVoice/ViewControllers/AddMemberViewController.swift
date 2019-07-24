@@ -52,6 +52,7 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func updateUI() {
+        view.backgroundColor = Color.background.value
         nameTxt.attributedPlaceholder = NSAttributedString(string: "Enter member name", attributes: [
             .foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
@@ -76,6 +77,7 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
         let tap = UITapGestureRecognizer(target: self, action: #selector(AddMemberViewController.editProfilePicture))
         profileImage.addGestureRecognizer(tap)
         profileImage.isUserInteractionEnabled = true
+        profileImage.roundedImage()
     }
     
     @objc func tap(sender: UITapGestureRecognizer) {
@@ -119,6 +121,7 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImage.image = image
+            profileImage.roundedImage()
             imageDidChange = true
         }
         dismiss(animated: true, completion: nil)
@@ -146,7 +149,16 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
             let currUser = Auth.auth().currentUser
             let user = User()
             user.id = currUser!.uid
-            user.name = currUser?.displayName
+            
+            if let fullNameArr = currUser?.displayName?.components(separatedBy: " "), fullNameArr.count > 0 {
+                if let fName = fullNameArr.first {
+                    user.firstName = fName
+                }
+                if let lName = fullNameArr.last {
+                    user.lastName = lName
+                }
+            }
+            
             user.profilePictureURL = currUser?.photoURL?.absoluteString
             user.email = currUser?.email
             

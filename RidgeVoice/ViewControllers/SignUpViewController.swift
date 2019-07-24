@@ -14,7 +14,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailTxt: UITextField!
-    @IBOutlet weak var fullNameTxt: UITextField!
+    @IBOutlet weak var firstNameTxt: UITextField!
+    @IBOutlet weak var lastNameTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var cPasswordTxt: UITextField!
     @IBOutlet weak var contactNoTxt: UITextField!
@@ -32,7 +33,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
     override func viewDidLoad() {
         super.viewDidLoad()
          updateUI()
-        scrollView.contentSize = calculateContentSize(scrollView: scrollView)
     }
     
     @IBAction func submitAction(_ sender: UIButton) {
@@ -48,14 +48,15 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
                 }
                 let newUser = User()
                 newUser.id = user?.user.uid
-                newUser.name = self.fullNameTxt.text!
+                newUser.firstName = self.firstNameTxt.text!
+                newUser.lastName = self.lastNameTxt.text!
                 newUser.contactNo = self.contactNoTxt.text!
                 newUser.email = self.emailTxt.text!
                 newUser.type = self.typeTxt.text!
                 newUser.address = self.addressTxt.text!
               
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                changeRequest?.displayName = self.fullNameTxt.text!
+                changeRequest?.displayName = "\(self.firstNameTxt.text!) \(self.lastNameTxt.text!)"
                 changeRequest?.commitChanges(completion: { (error) in
                     if error == nil {
                         print("success")
@@ -109,11 +110,11 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
                 print("Error: \(error?.localizedDescription ?? "")")
                 UIAlertController.show(self, "Error", "Try Again")
             }
-            
         })
     }
     
     func updateUI() {
+        view.backgroundColor = Color.background.value
         emailTxt.attributedPlaceholder = NSAttributedString(string: "Enter your email id", attributes: [
             .foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
@@ -122,7 +123,11 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
             .foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
         
-        fullNameTxt.attributedPlaceholder = NSAttributedString(string: "Enter your full name", attributes: [
+        firstNameTxt.attributedPlaceholder = NSAttributedString(string: "Enter your First name", attributes: [
+            .foregroundColor: UIColor.black,
+            .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
+        
+        lastNameTxt.attributedPlaceholder = NSAttributedString(string: "Enter your last name", attributes: [
             .foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
         
@@ -144,7 +149,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
         
         emailTxt.setLeftPaddingPoints(10)
         passwordTxt.setLeftPaddingPoints(10)
-        fullNameTxt.setLeftPaddingPoints(10)
+        firstNameTxt.setLeftPaddingPoints(10)
+        lastNameTxt.setLeftPaddingPoints(10)
         cPasswordTxt.setLeftPaddingPoints(10)
         contactNoTxt.setLeftPaddingPoints(10)
         addressTxt.setLeftPaddingPoints(10)
@@ -159,6 +165,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
         let tap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.editProfilePicture))
         profileImage.addGestureRecognizer(tap)
         profileImage.isUserInteractionEnabled = true
+        profileImage.roundedImage()
     }
     
     @objc func tap(sender: UITapGestureRecognizer) {
@@ -266,6 +273,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImage.image = image
+            profileImage.roundedImage()
         }
         dismiss(animated: true, completion: nil)
     }
@@ -275,8 +283,11 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
     }
     
     func validate() -> Bool {
-        if let nameTxt = fullNameTxt.text, nameTxt.isEmptyOrWhitespace() {
-            UIAlertController.show(self, "Error", "Full name is mandatory")
+        if let nameTxt = firstNameTxt.text, nameTxt.isEmptyOrWhitespace() {
+            UIAlertController.show(self, "Error", "First name is mandatory")
+            return false
+        } else if let lastNameTxt = lastNameTxt.text, lastNameTxt.isEmptyOrWhitespace() {
+            UIAlertController.show(self, "Error", "Last name is mandatory")
             return false
         } else if let emailTxt = emailTxt.text, emailTxt.isEmptyOrWhitespace() || !isValidEmail(testStr: emailTxt) {
             UIAlertController.show(self, "Error", "Invalid E-mail Id")
@@ -293,7 +304,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
         } else if let contactTxt = contactNoTxt.text, contactTxt.isEmptyOrWhitespace() || contactTxt.count < 10 {
             UIAlertController.show(self, "Error", "Invalid Contact Number")
             return false
-        } else if let addressTxt = fullNameTxt.text, addressTxt.isEmptyOrWhitespace() {
+        } else if let addressTxt = addressTxt.text, addressTxt.isEmptyOrWhitespace() {
             UIAlertController.show(self, "Error", "Address is mandatory")
             return false
         }
@@ -325,23 +336,14 @@ extension SignUpViewController : UIPickerViewDelegate,UIPickerViewDataSource, UI
         }
     }
     
-    func calculateContentSize(scrollView: UIScrollView) -> CGSize {
-        var topPoint = CGFloat()
-        var height = CGFloat()
-        
-        for subview in scrollView.subviews {
-            if subview.frame.origin.y > topPoint {
-                topPoint = subview.frame.origin.y
-                height = subview.frame.size.height
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        DispatchQueue.main.async {
+            var contentRect = CGRect.zero
+            for view in self.scrollView.subviews {
+                contentRect = contentRect.union(view.frame)
             }
-        }
-        return CGSize(width: scrollView.frame.size.width, height: height + topPoint)
-    }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.x != 0 {
-            scrollView.contentOffset.x = 0
+            self.scrollView.contentSize = CGSize(width: contentRect.size.width, height: contentRect.size.height + 10)
         }
     }
-    
 }

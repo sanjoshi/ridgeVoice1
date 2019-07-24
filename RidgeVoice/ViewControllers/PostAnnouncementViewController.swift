@@ -36,6 +36,7 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
     }
     
     func updateUI() {
+        view.backgroundColor = Color.background.value
          if let isedit = isEdit, !isedit {
             txtView.text = "Placeholder"
             txtView.textColor = UIColor.lightGray
@@ -93,7 +94,14 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
             let currUser = Auth.auth().currentUser
             let user = User()
             user.id = currUser!.uid
-            user.name = currUser?.displayName
+            if let fullNameArr = currUser?.displayName?.components(separatedBy: " "), fullNameArr.count > 0 {
+                if let fName = fullNameArr.first {
+                    user.firstName = fName
+                }
+                if let lName = fullNameArr.last {
+                    user.lastName = lName
+                }
+            }
             user.profilePictureURL = currUser?.photoURL?.absoluteString
             user.email = currUser?.email
             let createdAt = CreatedAt().getCurrentTime()

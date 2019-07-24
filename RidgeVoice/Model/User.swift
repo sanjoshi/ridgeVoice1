@@ -12,7 +12,8 @@ import RealmSwift
 public class User: Object {
     
     @objc dynamic var id : String?
-    @objc dynamic var name : String?
+    @objc dynamic var firstName : String?
+    @objc dynamic var lastName : String?
     @objc dynamic var contactNo: String?
     @objc dynamic var email: String?
     @objc dynamic var profilePictureURL: String?
@@ -28,7 +29,8 @@ public class User: Object {
         let dictionary = NSMutableDictionary()
         
         dictionary.setValue(self.id, forKey: "id")
-        dictionary.setValue(self.name, forKey: "name")
+        dictionary.setValue(self.firstName, forKey: "firstName")
+         dictionary.setValue(self.lastName, forKey: "lastName")
         dictionary.setValue(self.contactNo, forKey: "contactNo")
         dictionary.setValue(self.email, forKey: "email")
         dictionary.setValue(self.profilePictureURL, forKey: "profilePictureURL")
