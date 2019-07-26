@@ -76,19 +76,14 @@ class BoardMembersVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.nameTxt.text = members[indexPath.row].memberName
             cell.positionTxt.text = members[indexPath.row].position
             cell.contactTxt.text = members[indexPath.row].contactNo
-            if let picURL = members[indexPath.row].memberPictureURL {
-                cell.profileImg.sd_setImage(with: URL(string: picURL), placeholderImage: UIImage(named: "defaultUser"))
-            } else {
-                cell.profileImg.image = UIImage(named: "defaultUser")
-            }
-            cell.profileImg.roundedImage()
+            cell.emailTxt.text = members[indexPath.row].memberEmail
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 120.0
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -147,7 +142,8 @@ extension BoardMembersVC: updateMembersDelegate {
         memberObj.memberName = dictionary["memberName"] as? String
         memberObj.contactNo = dictionary["contactNo"] as? String
         memberObj.position = dictionary["position"] as? String
-        memberObj.memberPictureURL = dictionary["memberPictureURL"] as? String
+        memberObj.memberPictureURL = "" //dictionary["memberPictureURL"] as? String
+        memberObj.memberEmail = dictionary["memberEmail"] as? String
         return memberObj
     }
     

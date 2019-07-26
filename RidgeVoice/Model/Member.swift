@@ -17,6 +17,7 @@ class Member: Object {
     @objc dynamic var contactNo: String?
     @objc dynamic var position: String?
     @objc dynamic var memberPictureURL: String?
+    @objc dynamic var memberEmail: String?
     var count = RealmOptional<Int>()
     
     override public static func primaryKey() -> String? {
@@ -38,6 +39,7 @@ class Member: Object {
         dictionary.setValue(self.user?.dictionaryRepresentation(), forKey: "user")
         dictionary.setValue(self.count.value, forKey: "count")
         dictionary.setValue(self.memberPictureURL, forKey: "memberPictureURL")
+        dictionary.setValue(self.memberEmail, forKey: "memberEmail")
         return dictionary
     }
     

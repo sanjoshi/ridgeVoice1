@@ -11,7 +11,7 @@ import Firebase
 
 class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    var titles=["Profile","Board Members","Buy/Sell Items","Announcement","Ridge Issues"]
+    var titles=["Profile","Board Members","Buy/Sell Items","Announcement","Ridge Issues","Service Info"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +65,7 @@ class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         switch indexPath.row {
         case 0:
             if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+                profileVC.shouldShowMyProfile = true
                 self.navigationController?.pushViewController(profileVC, animated: true)
             }
         case 1:

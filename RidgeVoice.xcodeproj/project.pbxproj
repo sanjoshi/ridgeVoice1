@@ -21,6 +21,7 @@
 		225382A722DB1AD2008845AF /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225382A622DB1AD2008845AF /* Announcement.swift */; };
 		225382A922DB1BE7008845AF /* CreatedAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225382A822DB1BE7008845AF /* CreatedAt.swift */; };
 		225382AB22DB2158008845AF /* PostAnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225382AA22DB2158008845AF /* PostAnnouncementViewController.swift */; };
+		229EEB7D22E88490003E1905 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EEB7C22E88490003E1905 /* EditProfileViewController.swift */; };
 		22A72D1F22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A72D1E22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift */; };
 		22A72D2222D4A331008B9B83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22A72D2122D4A331008B9B83 /* GoogleService-Info.plist */; };
 		22AD792622D6044B0000CB6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD792522D6044B0000CB6D /* User.swift */; };
@@ -76,6 +77,7 @@
 		225382A622DB1AD2008845AF /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		225382A822DB1BE7008845AF /* CreatedAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedAt.swift; sourceTree = "<group>"; };
 		225382AA22DB2158008845AF /* PostAnnouncementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAnnouncementViewController.swift; sourceTree = "<group>"; };
+		229EEB7C22E88490003E1905 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		22A72D1E22D495C3008B9B83 /* MediumBlogColorScheme_FullCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumBlogColorScheme_FullCode.swift; sourceTree = "<group>"; };
 		22A72D2122D4A331008B9B83 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22AD792522D6044B0000CB6D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				22D239FD22D8ACA1008B0AA1 /* RidgeIssuesVC.swift */,
 				2207692222D9C0DD00A27AF0 /* AddMemberViewController.swift */,
 				225382AA22DB2158008845AF /* PostAnnouncementViewController.swift */,
+				229EEB7C22E88490003E1905 /* EditProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				22D239F622D8A8FA008B0AA1 /* ProfileViewController.swift in Sources */,
 				22D239EA22D8A1F7008B0AA1 /* CollectionViewCell.swift in Sources */,
 				22C0D6E922D4B50F00A33D9A /* ActivityIndicator.swift in Sources */,
+				229EEB7D22E88490003E1905 /* EditProfileViewController.swift in Sources */,
 				2207692522D9D5BD00A27AF0 /* Member.swift in Sources */,
 				22C0D6EB22D4B59600A33D9A /* Utility.swift in Sources */,
 				2207692322D9C0DD00A27AF0 /* AddMemberViewController.swift in Sources */,

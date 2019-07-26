@@ -12,7 +12,7 @@ class BoardTableViewCell: UITableViewCell {
     @IBOutlet weak var nameTxt: UILabel!
     @IBOutlet weak var positionTxt: UILabel!
     @IBOutlet weak var contactTxt: UILabel!
-    @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var emailTxt: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

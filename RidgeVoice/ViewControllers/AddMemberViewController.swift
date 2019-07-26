@@ -14,21 +14,23 @@ protocol updateMembersDelegate: class {
     func updateMembersDelegate()
 }
 
-class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate {
+class AddMemberViewController: UIViewController, /*UIImagePickerControllerDelegate,UINavigationControllerDelegate*/ UIScrollViewDelegate {
    
-    @IBOutlet weak var profileImage: UIImageView!
+    //@IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var contactTxt: UITextField!
     @IBOutlet weak var positionTxt: UITextField!
     @IBOutlet weak var actionBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var titleTxt: UILabel!
     
     weak var memberDelegte: updateMembersDelegate?
     
-    var imagePicker = UIImagePickerController()
+   // var imagePicker = UIImagePickerController()
     var isEdit: Bool?
     var membersDetails: Member?
-    var imageDidChange: Bool = false
+    //var imageDidChange: Bool = false
     lazy var memberRefObj: DatabaseReference! = Database.database().reference().child("Members")
     lazy var storageRef: StorageReference = Storage.storage().reference(forURL: "gs://ridgevoice-3768f.appspot.com/")
     
@@ -36,15 +38,18 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         if let isedit = isEdit, isedit {
             actionBtn.setTitle("Update", for: .normal)
+            titleTxt.text = "Edit Member"
             if let memberObj = membersDetails {
                 nameTxt.text = memberObj.memberName
                 contactTxt.text = memberObj.contactNo
                 positionTxt.text = memberObj.position
-                if let picURL = memberObj.memberPictureURL {
+                emailTxt.text = memberObj.memberEmail
+                /*if let picURL = memberObj.memberPictureURL {
                      profileImage.sd_setImage(with: URL(string: picURL), placeholderImage: UIImage(named: "defaultUser"))
-                }
+                }*/
             }
         } else {
+             titleTxt.text = "Add Member"
             actionBtn.setTitle("Add", for: .normal)
         }
         updateUI()
@@ -65,26 +70,31 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
             .foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
         
+        emailTxt.attributedPlaceholder = NSAttributedString(string: "Member Email", attributes: [
+            .foregroundColor: UIColor.black,
+            .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
+        
         nameTxt.setLeftPaddingPoints(10)
         contactTxt.setLeftPaddingPoints(10)
         positionTxt.setLeftPaddingPoints(10)
+        emailTxt.setLeftPaddingPoints(10)
         
-        imagePicker.delegate = self
+        //imagePicker.delegate = self
         let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(tap))
         tapGestureRecogniser.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGestureRecogniser)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(AddMemberViewController.editProfilePicture))
+       /* let tap = UITapGestureRecognizer(target: self, action: #selector(AddMemberViewController.editProfilePicture))
         profileImage.addGestureRecognizer(tap)
         profileImage.isUserInteractionEnabled = true
-        profileImage.roundedImage()
+        profileImage.roundedImage()*/
     }
     
     @objc func tap(sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
-    @objc func editProfilePicture()  {
+    /*@objc func editProfilePicture()  {
         imagePicker.sourceType = .photoLibrary
         let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: UIAlertAction.Style.default) {
@@ -129,7 +139,7 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
-    }
+    }*/
     
     @IBAction func addMemberAction(_ sender: UIButton) {
         if validate() {
@@ -167,17 +177,22 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
             memberObj.memberName = nameTxt.text
             memberObj.contactNo = contactTxt.text
             memberObj.position = positionTxt.text
+            memberObj.memberEmail = emailTxt.text
             memberObj.user = user
             memberObj.count.value = 0
-            if let isedit = isEdit, isedit {
+            /*if let isedit = isEdit, isedit {
                 let picURL = memberObj.memberPictureURL
                 memberObj.memberPictureURL = picURL
             } else {
                 memberObj.memberPictureURL = ""
-            }
-            
+            }*/
+            memberObj.memberPictureURL = ""
             memberRefObj.child(memberID).setValue(memberObj.dictionaryRepresentation())
-            if imageDidChange == true, let profileImg = self.profileImage.image, let imageData = profileImg.jpegData(compressionQuality: 0.8) {
+            ActivityIndicator.shared.hide()
+            self.dismiss(animated: true, completion: {
+                self.memberDelegte?.updateMembersDelegate()
+            })
+            /*if imageDidChange == true, let profileImg = self.profileImage.image, let imageData = profileImg.jpegData(compressionQuality: 0.8) {
                 self.uploadImageToFirebaseStorage(data: imageData, imageId: memberID)
             } else {
                 print("Image not updated")
@@ -185,7 +200,7 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
                 self.dismiss(animated: true, completion: {
                     self.memberDelegte?.updateMembersDelegate()
                 })
-            }
+            }*/
         }
     }
     
@@ -228,11 +243,14 @@ class AddMemberViewController: UIViewController, UIImagePickerControllerDelegate
         if let nameTxt = nameTxt.text, nameTxt.isEmptyOrWhitespace() {
             UIAlertController.show(self, "Error", "Member name is mandatory")
             return false
-        } else if let contactTxt = contactTxt.text, contactTxt.isEmptyOrWhitespace() || contactTxt.count < 10 {
+        } else if let contactTxt = contactTxt.text, !contactTxt.isEmptyOrWhitespace() && contactTxt.count != 10 {
             UIAlertController.show(self, "Error", "Invalid Contact Number")
             return false
         } else if let positionTxt = positionTxt.text, positionTxt.isEmptyOrWhitespace() {
             UIAlertController.show(self, "Error", "Position is mandatory")
+            return false
+        } else if let emailTxt = emailTxt.text, emailTxt.isEmptyOrWhitespace() || !isValidEmail(testStr: emailTxt) {
+            UIAlertController.show(self, "Error", "Invalid email Id")
             return false
         }
         return true
