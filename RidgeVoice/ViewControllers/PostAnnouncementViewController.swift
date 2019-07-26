@@ -16,6 +16,9 @@ protocol updateAnnoucementDelegate: class {
 class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var txtView: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titleText: UITextField!
+    @IBOutlet weak var buttonConstarint: NSLayoutConstraint!
     weak var annDelegte: updateAnnoucementDelegate?
     
     var isEdit: Bool?
@@ -27,31 +30,64 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
         if let isedit = isEdit, isedit {
             postBtn.setTitle("Update", for: .normal)
             if let messageObj = ObjDetails {
-               txtView.text = messageObj.message
+               txtView.text = messageObj.messageDesc
+               titleText.text = messageObj.message
             }
         } else {
-            postBtn.setTitle("Add", for: .normal)
+            postBtn.setTitle("Post", for: .normal)
         }
         updateUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if UIDevice.current.orientation.isLandscape {
+            buttonConstarint.constant = 200
+        } else {
+            buttonConstarint.constant = 84
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            buttonConstarint.constant = 200
+        } else {
+            buttonConstarint.constant = 84
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        DispatchQueue.main.async {
+            var contentRect = CGRect.zero
+            for view in self.scrollView.subviews {
+                contentRect = contentRect.union(view.frame)
+            }
+            self.scrollView.contentSize = CGSize(width: contentRect.size.width, height: contentRect.size.height + 10)
+        }
+    }
+    
     func updateUI() {
         view.backgroundColor = Color.background.value
+        titleText.attributedPlaceholder = NSAttributedString(string: "Enter member name", attributes: [
+            .foregroundColor: UIColor.black,
+            .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
+        
          if let isedit = isEdit, !isedit {
-            txtView.text = "Placeholder"
+            txtView.text = "Description"
             txtView.textColor = UIColor.lightGray
         }
         txtView.delegate = self
+        titleText.setLeftPaddingPoints(10)
+        
+        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(tap))
+        tapGestureRecogniser.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGestureRecogniser)
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneAction))
          toolbar.setItems([doneButton], animated: false)
         txtView.inputAccessoryView = toolbar
-        
-        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(tap))
-        tapGestureRecogniser.cancelsTouchesInView = false
-        view.addGestureRecognizer(tapGestureRecogniser)
     }
     
     @objc func doneAction() {
@@ -67,7 +103,7 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Placeholder"
+            textView.text = "Description"
             textView.textColor = UIColor.lightGray
         }
     }
@@ -107,7 +143,8 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
             let createdAt = CreatedAt().getCurrentTime()
             let annObj = Announcement()
             annObj.id = annoucementID
-            annObj.message = txtView.text
+            annObj.messageDesc = txtView.text
+            annObj.message = titleText.text
             
             let date = Date()
             let formatter = DateFormatter()
@@ -130,6 +167,9 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
     func validate() -> Bool {
         if let msgTxt = txtView.text, msgTxt.isEmptyOrWhitespace() {
             UIAlertController.show(self, "Error", "Message is mandatory")
+            return false
+        } else if let titleTxt = titleText.text, titleTxt.isEmptyOrWhitespace() {
+            UIAlertController.show(self, "Error", "Title is mandatory")
             return false
         }
         return true

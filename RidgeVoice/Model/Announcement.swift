@@ -13,6 +13,7 @@ class Announcement: Object {
     
     @objc dynamic var id : String?
     @objc dynamic var message : String?
+    @objc dynamic var messageDesc : String?
     @objc dynamic var user : User?
     @objc dynamic var timeStamp: String?
     @objc dynamic var dateValue : String?
@@ -31,6 +32,7 @@ class Announcement: Object {
         let dictionary = NSMutableDictionary()
         dictionary.setValue(self.id, forKey: "id")
         dictionary.setValue(self.message, forKey: "message")
+         dictionary.setValue(self.messageDesc, forKey: "messageDesc")
         dictionary.setValue(self.dateValue, forKey: "dateValue")
         dictionary.setValue(self.user?.dictionaryRepresentation(), forKey: "user")
         dictionary.setValue(self.timeStamp, forKey: "timeStamp")

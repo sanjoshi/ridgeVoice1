@@ -24,6 +24,7 @@ class AddMemberViewController: UIViewController, /*UIImagePickerControllerDelega
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var titleTxt: UILabel!
+    @IBOutlet weak var buttonConstarint: NSLayoutConstraint!
     
     weak var memberDelegte: updateMembersDelegate?
     
@@ -53,7 +54,22 @@ class AddMemberViewController: UIViewController, /*UIImagePickerControllerDelega
             actionBtn.setTitle("Add", for: .normal)
         }
         updateUI()
-        scrollView.contentSize = calculateContentSize(scrollView: scrollView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if UIDevice.current.orientation.isLandscape {
+            buttonConstarint.constant = 200
+        } else {
+            buttonConstarint.constant = 84
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            buttonConstarint.constant = 200
+        } else {
+            buttonConstarint.constant = 84
+        }
     }
     
     func updateUI() {
@@ -273,6 +289,17 @@ class AddMemberViewController: UIViewController, /*UIImagePickerControllerDelega
             }
         }
         return CGSize(width: scrollView.frame.size.width, height: height + topPoint)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        DispatchQueue.main.async {
+            var contentRect = CGRect.zero
+            for view in self.scrollView.subviews {
+                contentRect = contentRect.union(view.frame)
+            }
+            self.scrollView.contentSize = CGSize(width: contentRect.size.width, height: contentRect.size.height + 10)
+        }
     }
     /*
     // MARK: - Navigation

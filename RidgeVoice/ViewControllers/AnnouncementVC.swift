@@ -73,7 +73,14 @@ class AnnouncementVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "announcementcell", for: indexPath) as? AnnouncementTableViewCell {
-            cell.mainTxt.text = announcements[indexPath.row].message
+            let formattedString = NSMutableAttributedString()
+            if let msg = announcements[indexPath.row].message, !msg.isEmptyOrWhitespace() {
+                formattedString.bold("\(msg) \n")
+            }
+            if let desc = announcements[indexPath.row].messageDesc, !desc.isEmptyOrWhitespace() {
+                formattedString.normal(desc)
+            }
+            cell.mainTxt.attributedText = formattedString
             if let dateObj = announcements[indexPath.row].dateValue {
                 cell.dateTxt.text = "Date: \(dateObj)"
             }
@@ -135,6 +142,7 @@ extension AnnouncementVC: updateAnnoucementDelegate {
             annObj.user = userInitialize(dictionary: dictObj)
         }
         annObj.message = dictionary["message"] as? String
+        annObj.messageDesc = dictionary["messageDesc"] as? String
         if let datestr = dictionary["dateValue"] as? String {
             annObj.dateValue = datestr
         }
