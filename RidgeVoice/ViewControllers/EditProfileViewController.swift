@@ -50,15 +50,25 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             self.view.endEditing(true)
             ActivityIndicator.shared.show(self.view)
             guard let uid = Auth.auth().currentUser?.uid else { return }
-            self.userRef.child(uid).child("contactNo").setValue(self.contactNoTxt.text!)
-            self.userRef.child(uid).child("address").setValue(self.addressTxt.text!)
+            self.userRef.child(uid).updateChildValues(["contactNo": self.contactNoTxt.text!, "address": self.addressTxt.text!])
+//            self.userRef.child(uid).child("contactNo").setValue(self.contactNoTxt.text!)
+//            self.userRef.child(uid).child("address").setValue(self.addressTxt.text!)
             if imageDidChange, let profileImg = self.profileImage.image, let imageData = profileImg.jpegData(compressionQuality: 0.8) {
                 self.uploadImageToFirebaseStorage(data: imageData)
             } else {
                 ActivityIndicator.shared.hide()
-                self.dismiss(animated: true, completion: nil)
+                self.confirmAlert()
             }
         }
+    }
+    
+    func confirmAlert() {
+        let alertController = UIAlertController(title: "Success", message: "Update succesfull.", preferredStyle: UIAlertController.Style.alert)
+        let saveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { alert -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
+        alertController.addAction(saveAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func uploadImageToFirebaseStorage(data : Data) {
@@ -71,7 +81,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         storageRef.putData(data, metadata: metaData) { metaData, error in
             if error == nil, metaData != nil {
                 storageRef.downloadURL { url, error in
-                    print("Success at: \(url?.absoluteString ?? "")") // success!
+                    print("Success at: \(url?.absoluteString ?? "")")
                     if let imagePath = url?.absoluteString {
                         self.updateUserDetail(url: imagePath)
                     } else {
@@ -92,8 +102,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         changeRequest?.commitChanges(completion: { (error) in
             ActivityIndicator.shared.hide()
             if error == nil {
-                self.userRef.child(uid).child("profilePictureURL").setValue(url)
-                self.dismiss(animated: true, completion: nil)
+                //self.userRef.child(uid).child("profilePictureURL").setValue(url)
+                self.userRef.child(uid).updateChildValues(["profilePictureURL": url])
+                self.confirmAlert()
             } else {
                 print("Error: \(error?.localizedDescription ?? "")")
                 UIAlertController.show(self, "Error", "Try Again")

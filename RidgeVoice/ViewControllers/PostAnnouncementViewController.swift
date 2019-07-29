@@ -68,7 +68,7 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
     
     func updateUI() {
         view.backgroundColor = Color.background.value
-        titleText.attributedPlaceholder = NSAttributedString(string: "Enter member name", attributes: [
+        titleText.attributedPlaceholder = NSAttributedString(string: "Enter Title", attributes: [
             .foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
         

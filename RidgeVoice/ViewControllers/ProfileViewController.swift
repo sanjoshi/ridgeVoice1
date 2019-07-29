@@ -26,7 +26,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
       }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.users.removeAll()
         fetchUserExceptCurrent()
     }
     
@@ -76,7 +75,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return users.count
+        if users.count > 0 {
+            return users.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,9 +108,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return "\(users[section].firstName ?? "") \(users[section].lastName ?? "")"
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = Color.navigation.value
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        header.textLabel?.frame = header.frame
+        header.textLabel?.textAlignment = .left
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !shouldShowMyProfile {
-            self.didSelectContact(userObj: users[indexPath.row])
+            self.didSelectContact(userObj: users[indexPath.section])
         }
     }
     
@@ -116,18 +126,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let uid = userObj.id else { return }
         let alert = UIAlertController(title: "Ridge Voice", message: "Select User Type", preferredStyle: UIAlertController.Style.actionSheet)
         let admin = UIAlertAction(title: "Admin", style: UIAlertAction.Style.default) { (UIAlertAction) in
-             self.userRef.child(uid).child("type").setValue("Admin")
+            self.userRef.child(uid).updateChildValues(["type": "Admin"])
         }
         let tenant = UIAlertAction(title: "Tenant", style: UIAlertAction.Style.default) { (UIAlertAction) in
-             self.userRef.child(uid).child("type").setValue("Tenant")
+            self.userRef.child(uid).updateChildValues(["type": "Tenant"])
         }
         
         let owner = UIAlertAction(title: "Owner", style: UIAlertAction.Style.default) { (UIAlertAction) in
-             self.userRef.child(uid).child("type").setValue("Owner")
+            self.userRef.child(uid).updateChildValues(["type": "Owner"])
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-        
         alert.addAction(admin)
         alert.addAction(tenant)
         alert.addAction(owner)

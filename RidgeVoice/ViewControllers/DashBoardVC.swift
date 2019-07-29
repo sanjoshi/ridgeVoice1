@@ -11,7 +11,7 @@ import Firebase
 
 class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    var titles=["Profile","Board Members","Buy/Sell Items","Announcement","Ridge Issues","Service Info"]
+    var titles=["Profiles","Board Members","Sell Items","Announcements","Ridge Issues","Service Info"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

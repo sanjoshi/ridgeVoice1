@@ -105,12 +105,21 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
             ActivityIndicator.shared.hide()
             if error == nil {
                 self.userRef.child(uid).child("profilePictureURL").setValue(url)
-                self.dismiss(animated: true, completion: nil)
+                self.confirmAlert()
             } else {
                 print("Error: \(error?.localizedDescription ?? "")")
                 UIAlertController.show(self, "Error", "Try Again")
             }
         })
+    }
+    
+    func confirmAlert() {
+        let alertController = UIAlertController(title: "Success", message: "Registration succesfull.", preferredStyle: UIAlertController.Style.alert)
+        let saveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { alert -> Void in
+             self.dismiss(animated: true, completion: nil)
+        })
+         alertController.addAction(saveAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func updateUI() {
@@ -123,7 +132,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
             .foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
         
-        firstNameTxt.attributedPlaceholder = NSAttributedString(string: "Enter your First name", attributes: [
+        firstNameTxt.attributedPlaceholder = NSAttributedString(string: "Enter your first name", attributes: [
             .foregroundColor: UIColor.black,
             .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium) ])
         
@@ -306,6 +315,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate,UI
             return false
         } else if let addressTxt = addressTxt.text, addressTxt.isEmptyOrWhitespace() {
             UIAlertController.show(self, "Error", "Address is mandatory")
+            return false
+        } else if let typeTxt = typeTxt.text, typeTxt.isEmptyOrWhitespace() {
+            UIAlertController.show(self, "Error", "Type is mandatory")
             return false
         }
         

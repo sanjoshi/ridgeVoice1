@@ -120,8 +120,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
                                 if let type = value["type"] as? String, type == "Admin" {
                                     defaults.set(true, forKey: "isAdmin")
                                 } else {
-                                    // defaults.set(false, forKey: "isAdmin")
-                                     defaults.set(true, forKey: "isAdmin")
+                                    defaults.set(false, forKey: "isAdmin")
                                 }
                                 defaults.set(true, forKey: "userLoggedIn")
                                 defaults.synchronize()

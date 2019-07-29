@@ -30,7 +30,7 @@ public class User: Object {
         
         dictionary.setValue(self.id, forKey: "id")
         dictionary.setValue(self.firstName, forKey: "firstName")
-         dictionary.setValue(self.lastName, forKey: "lastName")
+        dictionary.setValue(self.lastName, forKey: "lastName")
         dictionary.setValue(self.contactNo, forKey: "contactNo")
         dictionary.setValue(self.email, forKey: "email")
         dictionary.setValue(self.profilePictureURL, forKey: "profilePictureURL")
