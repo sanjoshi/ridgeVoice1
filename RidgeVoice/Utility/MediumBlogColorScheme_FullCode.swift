@@ -122,7 +122,7 @@ extension AuthErrorCode {
         case .weakPassword:
             return "Your password is too weak. The password must be 6 characters long or more."
         case .wrongPassword:
-            return "Your password is incorrect. Please try again or use 'Forgot password' to reset your password"
+            return "Your password is incorrect. Please try again or use 'Reset password' option."
         default:
             return "Unknown error occurred"
         }

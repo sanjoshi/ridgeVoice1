@@ -75,7 +75,9 @@ class AnnouncementVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let cell = tableView.dequeueReusableCell(withIdentifier: "announcementcell", for: indexPath) as? AnnouncementTableViewCell {
             let formattedString = NSMutableAttributedString()
             if let msg = announcements[indexPath.row].message, !msg.isEmptyOrWhitespace() {
-                formattedString.bold("\(msg) \n")
+                let myAttribute = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
+                let myString = NSMutableAttributedString(string: "\(msg) \n", attributes: myAttribute )
+                formattedString.append(myString)
             }
             if let desc = announcements[indexPath.row].messageDesc, !desc.isEmptyOrWhitespace() {
                 formattedString.normal(desc)

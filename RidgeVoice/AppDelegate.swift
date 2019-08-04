@@ -12,6 +12,8 @@ import RealmSwift
 
 var annRealm = try! Realm() // For Annoucements
 var memberRealm = try! Realm()
+var ridgeIssueRealm = try! Realm()
+var saleItemRealm = try! Realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,11 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let defaults = UserDefaults.standard
         if defaults.bool(forKey: "userLoggedIn") {
-            //defaults.set(false, forKey: "showTutorial")
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "dashboardvc")
             self.window?.rootViewController = initialViewController
         } else {
-            //defaults.set(true, forKey: "showTutorial")
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "loginvc")
             self.window?.rootViewController = initialViewController
         }

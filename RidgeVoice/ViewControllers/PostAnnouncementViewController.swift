@@ -40,8 +40,13 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        registerNotifications()
         if UIDevice.current.orientation.isLandscape {
-            buttonConstarint.constant = 200
+            if UIDevice.current.hasNotch {
+                 buttonConstarint.constant = self.view.frame.width/2 + 100
+            } else {
+                 buttonConstarint.constant = self.view.frame.width/2 + 50
+            }
         } else {
             buttonConstarint.constant = 84
         }
@@ -49,10 +54,15 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
-            buttonConstarint.constant = 200
+            if UIDevice.current.hasNotch {
+                buttonConstarint.constant = self.view.frame.width/2 + 100
+            } else {
+                buttonConstarint.constant = self.view.frame.width/2 + 50
+            }
         } else {
             buttonConstarint.constant = 84
         }
+        self.doneAction()
     }
     
     override func viewDidLayoutSubviews() {
@@ -62,7 +72,11 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
             for view in self.scrollView.subviews {
                 contentRect = contentRect.union(view.frame)
             }
-            self.scrollView.contentSize = CGSize(width: contentRect.size.width, height: contentRect.size.height + 10)
+            if UIDevice.current.orientation.isLandscape {
+                self.scrollView.contentSize = CGSize(width: contentRect.size.width, height: contentRect.size.height + 250)
+            } else {
+                self.scrollView.contentSize = CGSize(width: contentRect.size.width, height: contentRect.size.height + 10)
+            }
         }
     }
     
@@ -79,7 +93,7 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
         txtView.delegate = self
         titleText.setLeftPaddingPoints(10)
         
-        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(tap))
+        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(doneAction))
         tapGestureRecogniser.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGestureRecogniser)
         
@@ -91,7 +105,11 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func doneAction() {
-       self.view.endEditing(true)
+        self.view.endEditing(true)
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
+        scrollView.scrollRectToVisible(.zero, animated: true)
+        scrollView.contentOffset = .zero
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -108,11 +126,7 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    @objc func tap(sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-    
-    @IBAction func postAction(_ sender: UIButton) {
+   @IBAction func postAction(_ sender: UIButton) {
         if validate() {
             var annoucementID = ""
             if let isedit = isEdit, isedit {
@@ -189,4 +203,64 @@ class PostAnnouncementViewController: UIViewController, UITextViewDelegate {
     }
     */
 
+}
+extension PostAnnouncementViewController {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+        unregisterNotifications()
+    }
+    
+    private func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTextView(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    private func unregisterNotifications() {
+        NotificationCenter.default.removeObserver(self)
+        scrollView.contentInset.bottom = 0
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification){
+        guard let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardSize = keyboardFrame.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        scrollView.contentInset = contentInsets
+        if txtView.isFirstResponder {
+            if UIDevice.current.orientation.isLandscape {
+                let tmpRect = CGRect(x: scrollView.frame.origin.x, y: txtView.frame.origin.y - 280, width: scrollView.frame.width, height: scrollView.frame.height)
+                scrollView.scrollRectToVisible(tmpRect, animated: true)
+            } else {
+                let tmpRect = CGRect(x: scrollView.frame.origin.x, y: scrollView.frame.origin.y - 300, width: scrollView.frame.width, height: scrollView.frame.height)
+                scrollView.scrollRectToVisible(tmpRect, animated: true)
+            }
+        }
+        scrollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification){
+        //scrollView.contentInset.bottom = 0
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
+        scrollView.scrollRectToVisible(.zero, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
+    }
+    
+    @objc func updateTextView(notification : Notification) {
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            txtView.contentInset = UIEdgeInsets.zero
+        } else {
+            txtView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            txtView.scrollIndicatorInsets = txtView.contentInset
+        }
+        txtView.scrollRangeToVisible(txtView.selectedRange)
+    }
 }

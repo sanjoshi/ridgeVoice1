@@ -7,4 +7,5 @@ pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 pod 'RealmSwift'
 pod 'SDWebImage'
+pod 'PMAlertController'
 end

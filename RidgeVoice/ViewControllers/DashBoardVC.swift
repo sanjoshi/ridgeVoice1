@@ -73,19 +73,17 @@ class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
                 self.navigationController?.pushViewController(boardmemVC, animated: true)
             }
         case 2:
-             break
-//            if let buysellVC = self.storyboard?.instantiateViewController(withIdentifier: "BuySellVC") as? BuySellVC {
-//                self.navigationController?.pushViewController(buysellVC, animated: true)
-//            }
+            if let buysellVC = self.storyboard?.instantiateViewController(withIdentifier: "BuySellVC") as? BuySellVC {
+                self.navigationController?.pushViewController(buysellVC, animated: true)
+            }
         case 3:
             if let announcementVC = self.storyboard?.instantiateViewController(withIdentifier: "AnnouncementVC") as? AnnouncementVC {
                 self.navigationController?.pushViewController(announcementVC, animated: true)
             }
         case 4:
-             break
-//            if let ridgeissueVC = self.storyboard?.instantiateViewController(withIdentifier: "RidgeIssuesVC") as? RidgeIssuesVC {
-//                self.navigationController?.pushViewController(ridgeissueVC, animated: true)
-//            }
+            if let ridgeissueVC = self.storyboard?.instantiateViewController(withIdentifier: "RidgeIssuesVC") as? RidgeIssuesVC {
+                self.navigationController?.pushViewController(ridgeissueVC, animated: true)
+            }
         default:
             break
         }

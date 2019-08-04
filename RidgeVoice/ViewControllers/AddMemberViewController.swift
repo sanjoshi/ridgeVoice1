@@ -57,6 +57,7 @@ class AddMemberViewController: UIViewController, /*UIImagePickerControllerDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        registerNotifications()
         if UIDevice.current.orientation.isLandscape {
             buttonConstarint.constant = 200
         } else {
@@ -104,6 +105,32 @@ class AddMemberViewController: UIViewController, /*UIImagePickerControllerDelega
         profileImage.addGestureRecognizer(tap)
         profileImage.isUserInteractionEnabled = true
         profileImage.roundedImage()*/
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+        unregisterNotifications()
+    }
+    
+    private func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func unregisterNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        scrollView.contentInset.bottom = 0
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification){
+        guard let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        scrollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification){
+        scrollView.contentInset.bottom = 0
     }
     
     @objc func tap(sender: UITapGestureRecognizer) {

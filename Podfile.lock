@@ -77,6 +77,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - PMAlertController (4.0.0)
   - Realm (3.17.0):
     - Realm/Headers (= 3.17.0)
   - Realm/Headers (3.17.0)
@@ -92,6 +93,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - PMAlertController
   - RealmSwift
   - SDWebImage
 
@@ -110,6 +112,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - PMAlertController
     - Realm
     - RealmSwift
     - SDWebImage
@@ -128,10 +131,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PMAlertController: 5fad2da8b9eb687134ed50c3462fed12c3afe976
   Realm: b30db41ff34fc858ffc25ba8d44a82c164e7ccd0
   RealmSwift: fe733e459d60dc7b6971d4cbee2eb4854097d12c
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: 1c182c3ce73ef886306b7f437a341f9fea56e6a7
+PODFILE CHECKSUM: ccc88068786deba000af03b5866cad908c52cfea
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5

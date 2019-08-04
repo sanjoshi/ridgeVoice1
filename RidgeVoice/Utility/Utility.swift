@@ -83,4 +83,14 @@ extension UIImageView {
         self.layer.borderColor = UIColor.white.cgColor
         self.contentMode = UIView.ContentMode.scaleToFill
     }
+    func isEqual(to image: UIImage) -> Bool {
+        return isEqual(image)
+    }
 }
+extension UIDevice {
+    var hasNotch: Bool {
+        let bottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+        return bottom > 0
+    }
+}
+
