@@ -14,6 +14,7 @@ var annRealm = try! Realm() // For Annoucements
 var memberRealm = try! Realm()
 var ridgeIssueRealm = try! Realm()
 var saleItemRealm = try! Realm()
+var serviceRealm = try! Realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

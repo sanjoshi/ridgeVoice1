@@ -84,6 +84,10 @@ class DashBoardVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
             if let ridgeissueVC = self.storyboard?.instantiateViewController(withIdentifier: "RidgeIssuesVC") as? RidgeIssuesVC {
                 self.navigationController?.pushViewController(ridgeissueVC, animated: true)
             }
+        case 5:
+            if let serviceInfoVC = self.storyboard?.instantiateViewController(withIdentifier: "serviceinfovc") as? ServiceInfoViewController {
+                self.navigationController?.pushViewController(serviceInfoVC, animated: true)
+            }
         default:
             break
         }
